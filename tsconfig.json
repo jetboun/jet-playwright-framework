@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@pages/*":["pages/pages-repo/*"],
+        "@objects/*":["pages/objects-repo/*"],
+        "@lib/*":["lib/*"],
+        "@test-data":["test-data"]
+      }                                         
+    }
+}
+  
