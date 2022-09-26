@@ -8,4 +8,4 @@ Light test framework written with Playwright, implements Page Object Pattern and
 
 # How to Run tests
 1. Simple run with `npm run test` in 3 browsers (chromium, firefox, webkit) in parallel
-2. Run with Allure `npm run test:allure && npm run allure:generate && npm run allure:open`
+2. Run with Allure `npm run test:allure && npm run allure:generate && npm run allure:open` (if the command doesn't work the first time, try running the commands separately)
