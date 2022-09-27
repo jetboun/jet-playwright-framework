@@ -13,7 +13,7 @@ export class VideoHeader extends VideoHeaderPageObject {
         webActions = new WebActions(this.page);
     }
 
-    async enterTextInputAndCheck(text: string): Promise<void> {
+    async enterTextInInput(text: string): Promise<void> {
         webActions.enterElementText(VideoHeaderPageObject.SEARCH_INPUT, text);
     }
 

@@ -13,7 +13,7 @@ test('Chack that video prewiew is displayed on video with number 1', async({page
     await videoSearchResult.goToURL();
     await videoSearchResult.waitForPageLoaded();
     //when
-    await videoHeader.enterTextInputAndCheck(TODO_ITEMS[0]);
+    await videoHeader.enterTextInInput(TODO_ITEMS[0]);
     await videoHeader.clickToSearchButton();
     await videoSearchResult.waitForContentLoaded();
     //than
@@ -27,7 +27,7 @@ test('Chack that video prewiew is displayed on video with number 20', async({pag
     await videoSearchResult.goToURL();
     await videoSearchResult.waitForPageLoaded();
     //when
-    await videoHeader.enterTextInputAndCheck('ураган');
+    await videoHeader.enterTextInInput(TODO_ITEMS[0]);
     await videoHeader.clickToSearchButton();
     await videoSearchResult.waitForContentLoaded();
     //than

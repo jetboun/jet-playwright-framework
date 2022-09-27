@@ -1,5 +1,6 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
+import { TestData } from '@test-data';
 
 /**
  * Read environment variables from file.
@@ -38,10 +39,13 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
-
+    baseURL: TestData.baseURL,
+    headless: true,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure'
+    screenshot: 'only-on-failure',
+    video: 'off',
+    viewport: { width: 1500, height: 730 }
   },
 
   /* Configure projects for major browsers */
@@ -50,8 +54,9 @@ const config: PlaywrightTestConfig = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        // this is necessary for correct work with codecs with tests for yandex video preview. details: https://github.com/microsoft/playwright/issues/4585
         launchOptions: {
-          executablePath: `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`,
+          executablePath: `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`
         }
       },
     }

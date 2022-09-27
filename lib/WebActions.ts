@@ -13,7 +13,7 @@ export class WebActions {
     }
 
     async goToURL(url: string) {
-        this.page.goto(baseURL + url);
+        this.page.goto(url);
     }
 
     async waitForPageNavigation(event: string): Promise<void> {
