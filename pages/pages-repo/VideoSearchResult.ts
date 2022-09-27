@@ -17,7 +17,7 @@ export class VideoSearchResult extends VideoSearchResultPageObjects {
     }
 
     async goToURL(): Promise<void> {
-        await webActions.goToURL('video/');
+        webActions.goToURL('video/');
     }
 
     async waitForPageLoaded(): Promise<void> {
@@ -29,8 +29,8 @@ export class VideoSearchResult extends VideoSearchResultPageObjects {
     }
 
     async waitForSearchResultContentWithNameIsLoaded(name: string): Promise<void> {
-        var flag = false;
-        var timeout = 0;
+        let flag = false;
+        let timeout = 0;
         while (!flag && timeout < DEFAULT_ELEMENT_TIMEOUT) {
             const nameLower = name.toLowerCase();
             const textTitle = (await this.page.locator(VideoSearchResultPageObjects.VIDEO_FIRST_TITLE).innerText()).valueOf().toLowerCase();
@@ -42,9 +42,9 @@ export class VideoSearchResult extends VideoSearchResultPageObjects {
         }
     }
 
-    async checkThatVideoWithNumberHavePrewiew(elementNumber: number): Promise<void> {
+    async checkThatVideoWithNumberHavePreview(elementNumber: number): Promise<void> {
         const rows = this.page.locator(VideoSearchResultPageObjects.VIDEO_PREVIEW_ELEMENT);
-        var element: Locator;
+        let element: Locator;
         for (let i = 0; i < await rows.count(); ++i) {
             if (i == elementNumber) {
                 element = rows.nth(i);
@@ -54,12 +54,12 @@ export class VideoSearchResult extends VideoSearchResultPageObjects {
         await element.isVisible();
         await element.hover();
         const videoElement = element.locator('video');
-        const src = videoElement.getAttribute('src').catch(() => { throw new Error('Prewiew video is not found'); });
+        videoElement.getAttribute('src').catch(() => { throw new Error('Preview video is not found'); });
     }
 
-    async checkThatPrewiewIsPlayingOnVideoWithNumber(elementNumber: number): Promise<void> {
+    async checkThatPreviewIsPlayingOnVideoWithNumber(elementNumber: number): Promise<void> {
         const rows = this.page.locator(VideoSearchResultPageObjects.VIDEO_PREVIEW_ELEMENT);
-        var element: Locator;
+        let element: Locator;
         for (let i = 0; i < await rows.count(); ++i) {
             if ((i + 1) == elementNumber) {
                 element = rows.nth(i);
@@ -67,7 +67,6 @@ export class VideoSearchResult extends VideoSearchResultPageObjects {
         }
         if (element == null) throw new Error('Video element with number ' + elementNumber + ' is not found');
         await element.isVisible();
-        // await element.scrollIntoViewIfNeeded();
         await element.hover();
         await webActions.verifyElementIsDisplayed(VideoSearchResultPageObjects.VIDEO_PREVIEW_PLAYING)
     }

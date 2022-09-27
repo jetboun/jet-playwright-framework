@@ -14,11 +14,11 @@ export class VideoHeader extends VideoHeaderPageObject {
     }
 
     async enterTextInInput(text: string): Promise<void> {
-        webActions.enterElementText(VideoHeaderPageObject.SEARCH_INPUT, text);
+        await webActions.enterElementText(VideoHeaderPageObject.SEARCH_INPUT, text);
     }
 
     async clickToSearchButton(): Promise<void> {
-        webActions.clickElement(VideoHeaderPageObject.SEARCH_BUTTON);
+        await webActions.clickElement(VideoHeaderPageObject.SEARCH_BUTTON);
     }
 
 }

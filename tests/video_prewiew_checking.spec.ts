@@ -6,7 +6,7 @@ const TODO_ITEMS = [
   'ураган'
 ];
 
-test('Chack that video prewiew is displayed on video with number 1', async({page}) => {
+test('Check that video preview is displayed on video with number 1', async({page}) => {
     const videoSearchResult = new VideoSearchResult(page);
     const videoHeader = new VideoHeader(page);
     //given
@@ -16,11 +16,11 @@ test('Chack that video prewiew is displayed on video with number 1', async({page
     await videoHeader.enterTextInInput(TODO_ITEMS[0]);
     await videoHeader.clickToSearchButton();
     await videoSearchResult.waitForContentLoaded();
-    //than
-    await videoSearchResult.checkThatPrewiewIsPlayingOnVideoWithNumber(1);
+    //then
+    await videoSearchResult.checkThatPreviewIsPlayingOnVideoWithNumber(1);
 });
 
-test('Chack that video prewiew is displayed on video with number 20', async({page}) => {
+test('Check that video preview is displayed on video with number 20', async({page}) => {
     const videoSearchResult = new VideoSearchResult(page);
     const videoHeader = new VideoHeader(page);
     //given
@@ -30,6 +30,6 @@ test('Chack that video prewiew is displayed on video with number 20', async({pag
     await videoHeader.enterTextInInput(TODO_ITEMS[0]);
     await videoHeader.clickToSearchButton();
     await videoSearchResult.waitForContentLoaded();
-    //than
-    await videoSearchResult.checkThatPrewiewIsPlayingOnVideoWithNumber(20);
+    //then
+    await videoSearchResult.checkThatPreviewIsPlayingOnVideoWithNumber(20);
 });

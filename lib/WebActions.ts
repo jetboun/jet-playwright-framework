@@ -1,9 +1,7 @@
-import type { ElementHandle, Locator, Page } from '@playwright/test';
-import { BrowserContext, expect } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import { TestData } from '@test-data';
 
 const waitForElement = TestData.waitForElement;
-const baseURL = TestData.baseURL;
 
 export class WebActions {
     readonly page: Page;
@@ -13,7 +11,7 @@ export class WebActions {
     }
 
     async goToURL(url: string) {
-        this.page.goto(url);
+        await this.page.goto(url);
     }
 
     async waitForPageNavigation(event: string): Promise<void> {
